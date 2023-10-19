@@ -59,15 +59,5 @@ namespace ibakov_autoservice.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap service_logo__2_ {
-            get {
-                object obj = ResourceManager.GetObject("service_logo__2_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

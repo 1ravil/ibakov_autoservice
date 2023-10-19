@@ -23,6 +23,10 @@ namespace ibakov_autoservice
         public ServicePage()
         {
             InitializeComponent();
+
+            var currentServices = Ibakov_autoserviceEntities.GetContext().service_a_import.ToList();
+
+            ServiceListView.ItemsSource = currentServices;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
