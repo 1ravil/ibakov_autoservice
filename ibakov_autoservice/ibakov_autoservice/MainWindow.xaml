@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>            
         </Grid.RowDefinitions>
         <Image Source="/Resources/service_logo (2).png" HorizontalAlignment="Left"></Image>
         <TextBlock Text="Услуги автосервиса" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>

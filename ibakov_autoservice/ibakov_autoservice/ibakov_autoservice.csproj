@@ -193,6 +193,8 @@
       <DependentUpon>IbakovModel.edmx</DependentUpon>
       <LastGenOutput>IbakovModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\picture.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
