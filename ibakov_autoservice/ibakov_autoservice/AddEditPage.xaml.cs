@@ -20,9 +20,56 @@ namespace ibakov_autoservice
     /// </summary>
     public partial class AddEditPage : Page
     {
-        public AddEditPage()
+
+        private service_a_import _currentService = new service_a_import();
+
+        public AddEditPage(service_a_import SelectedService)
         {
             InitializeComponent();
+            if (SelectedService != null)
+                _currentService = SelectedService;
+            DataContext = _currentService;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder errors=new StringBuilder();
+
+            if (string.IsNullOrWhiteSpace(_currentService.Title))
+                errors.AppendLine("Укажите название услуги");
+
+            if (_currentService.Cost == 0)
+                errors.AppendLine("Укажите стоимость услуги");
+
+            if (_currentService.Discount < 0 || _currentService.Discount > 100)
+                errors.AppendLine("Укажите скидку");
+
+            if (string.IsNullOrWhiteSpace(_currentService.DurationInSeconds))
+                errors.AppendLine("Укажите длительность услуги");
+
+
+            if(string.IsNullOrWhiteSpace(_currentService.Discount.ToString()))
+            {
+                _currentService.Discount = 0;
+            }
+            if(errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+            if (_currentService.ID == 0)
+                Ibakov_autoserviceEntities.GetContext().service_a_import.Add(_currentService);
+            try
+            {
+                Ibakov_autoserviceEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
+                Manager.MainFrame.GoBack();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

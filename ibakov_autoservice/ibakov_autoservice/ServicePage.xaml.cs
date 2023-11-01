@@ -76,7 +76,7 @@ namespace ibakov_autoservice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            Manager.MainFrame.Navigate(new AddEditPage(null));
         }
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -97,6 +97,25 @@ namespace ibakov_autoservice
         private void RButtonDown_Checked(object sender, RoutedEventArgs e)
         {
             UpdateServices();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as service_a_import));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(Visibility==Visibility.Visible)
+            {
+                Ibakov_autoserviceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = Ibakov_autoserviceEntities.GetContext().service_a_import.ToList();
+            }
         }
     }
 }

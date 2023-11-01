@@ -12,15 +12,17 @@ namespace ibakov_autoservice
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class Ibakov_autoserviceEntities : DbContext
     {
+
         private static Ibakov_autoserviceEntities _context;
 
         public static Ibakov_autoserviceEntities GetContext()
         {
-            if(_context==null)
-                _context=new Ibakov_autoserviceEntities();
+            if (_context == null)
+                _context = new Ibakov_autoserviceEntities();
+
             return _context;
         }
         public Ibakov_autoserviceEntities()
