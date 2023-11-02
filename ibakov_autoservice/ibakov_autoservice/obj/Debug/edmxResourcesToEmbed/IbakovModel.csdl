@@ -27,6 +27,7 @@
     <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="client_a_import" Relationship="Self.FK_ClientService_client_a_import" FromRole="ClientService" ToRole="client_a_import" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_ClientService_Service" FromRole="ClientService" ToRole="Service" />
     <NavigationProperty Name="service_a_import" Relationship="Self.FK_ClientService_service_a_import" FromRole="ClientService" ToRole="service_a_import" />
     <NavigationProperty Name="DocumentByService" Relationship="Self.FK_DocumentByService_ClientService" FromRole="ClientService" ToRole="DocumentByService" />
     <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_ClientService" FromRole="ClientService" ToRole="ProductSale" />
@@ -95,6 +96,19 @@
     <NavigationProperty Name="ClientService" Relationship="Self.FK_ProductSale_ClientService" FromRole="ProductSale" ToRole="ClientService" />
     <NavigationProperty Name="Product" Relationship="Self.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
   </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MainImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DurationInSeconds" Type="Int16" Nullable="false" />
+    <Property Name="Cost" Type="Int16" Nullable="false" />
+    <Property Name="Discount" Type="Byte" />
+    <NavigationProperty Name="ClientService" Relationship="Self.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
+    <NavigationProperty Name="ServicePhoto" Relationship="Self.FK_ServicePhoto_Service" FromRole="Service" ToRole="ServicePhoto" />
+  </EntityType>
   <EntityType Name="service_a_import">
     <Key>
       <PropertyRef Name="ID" />
@@ -115,6 +129,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ServiceID" Type="Int32" Nullable="false" />
     <Property Name="PhotoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_ServicePhoto_Service" FromRole="ServicePhoto" ToRole="Service" />
     <NavigationProperty Name="service_a_import" Relationship="Self.FK_ServicePhoto_service_a_import" FromRole="ServicePhoto" ToRole="service_a_import" />
   </EntityType>
   <EntityType Name="Tag">
@@ -147,6 +162,18 @@
       </Principal>
       <Dependent Role="ClientService">
         <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientService_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ClientService" Type="Self.ClientService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientService">
+        <PropertyRef Name="ServiceID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -222,6 +249,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ServicePhoto_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServicePhoto" Type="Self.ServicePhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServicePhoto">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ServicePhoto_service_a_import">
     <End Role="service_a_import" Type="Self.service_a_import" Multiplicity="1" />
     <End Role="ServicePhoto" Type="Self.ServicePhoto" Multiplicity="*" />
@@ -251,6 +290,7 @@
     <EntitySet Name="Product" EntityType="Self.Product" />
     <EntitySet Name="ProductPhoto" EntityType="Self.ProductPhoto" />
     <EntitySet Name="ProductSale" EntityType="Self.ProductSale" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
     <EntitySet Name="service_a_import" EntityType="Self.service_a_import" />
     <EntitySet Name="ServicePhoto" EntityType="Self.ServicePhoto" />
     <EntitySet Name="Tag" EntityType="Self.Tag" />
@@ -260,6 +300,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_ClientService_client_a_import" Association="Self.FK_ClientService_client_a_import">
       <End Role="client_a_import" EntitySet="client_a_import" />
+      <End Role="ClientService" EntitySet="ClientService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientService_Service" Association="Self.FK_ClientService_Service">
+      <End Role="Service" EntitySet="Service" />
       <End Role="ClientService" EntitySet="ClientService" />
     </AssociationSet>
     <AssociationSet Name="FK_ClientService_service_a_import" Association="Self.FK_ClientService_service_a_import">
@@ -285,6 +329,10 @@
     <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductSale" EntitySet="ProductSale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicePhoto_Service" Association="Self.FK_ServicePhoto_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServicePhoto" EntitySet="ServicePhoto" />
     </AssociationSet>
     <AssociationSet Name="FK_ServicePhoto_service_a_import" Association="Self.FK_ServicePhoto_service_a_import">
       <End Role="service_a_import" EntitySet="service_a_import" />

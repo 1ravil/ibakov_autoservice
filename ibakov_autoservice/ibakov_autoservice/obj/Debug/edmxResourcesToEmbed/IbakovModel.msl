@@ -86,6 +86,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="Ibakov_autoserviceModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
+          <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="service_a_import">
       <EntityTypeMapping TypeName="Ibakov_autoserviceModel.service_a_import">
         <MappingFragment StoreEntitySet="service_a_import">

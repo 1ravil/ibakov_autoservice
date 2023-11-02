@@ -12,27 +12,25 @@ namespace ibakov_autoservice
     using System;
     using System.Collections.Generic;
     
-    public partial class ClientService
+    public partial class Service
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ClientService()
+        public Service()
         {
-            this.DocumentByService = new HashSet<DocumentByService>();
-            this.ProductSale = new HashSet<ProductSale>();
+            this.ClientService = new HashSet<ClientService>();
+            this.ServicePhoto = new HashSet<ServicePhoto>();
         }
     
         public int ID { get; set; }
-        public int ClientID { get; set; }
-        public int ServiceID { get; set; }
-        public System.DateTime StartTime { get; set; }
-        public string Comment { get; set; }
+        public string Title { get; set; }
+        public string MainImagePath { get; set; }
+        public short DurationInSeconds { get; set; }
+        public short Cost { get; set; }
+        public Nullable<byte> Discount { get; set; }
     
-        public virtual client_a_import client_a_import { get; set; }
-        public virtual Service Service { get; set; }
-        public virtual service_a_import service_a_import { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DocumentByService> DocumentByService { get; set; }
+        public virtual ICollection<ClientService> ClientService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductSale> ProductSale { get; set; }
+        public virtual ICollection<ServicePhoto> ServicePhoto { get; set; }
     }
 }
