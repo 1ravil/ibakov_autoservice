@@ -99,3 +99,31 @@ D:\r stol\Все\Документы\документы Равиля\коллед
 D:\r stol\Все\Документы\документы Равиля\колледж\тимашева 3 курс\666666\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.GenerateResource.cache
 D:\r stol\Все\Документы\документы Равиля\колледж\тимашева 3 курс\666666\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.CoreCompileInputs.cache
 D:\r stol\Все\Документы\документы Равиля\колледж\тимашева 3 курс\666666\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.CopyComplete
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\ibakov_autoservice.exe.config
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\ibakov_autoservice.exe
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\ibakov_autoservice.pdb
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\EntityFramework.dll
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\EntityFramework.SqlServer.dll
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\EntityFramework.xml
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\EntityFramework.SqlServer.xml
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\bin\Debug\ru\EntityFramework.resources.dll
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.AssemblyReference.cache
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.SuggestedBindingRedirects.cache
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\AddEditPage.g.cs
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\MainWindow.g.cs
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ServicePage.g.cs
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\App.g.cs
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice_Content.g.cs
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice_MarkupCompile.cache
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice_MarkupCompile.lref
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\App.baml
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\AddEditPage.baml
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\MainWindow.baml
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ServicePage.baml
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.g.resources
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.Properties.Resources.resources
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.GenerateResource.cache
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.CoreCompileInputs.cache
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.csproj.CopyComplete
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.exe
+D:\3 курс\ИСП-3221\ibakov_autoservice\ibakov_autoservice\obj\Debug\ibakov_autoservice.pdb

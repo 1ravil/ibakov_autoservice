@@ -78,7 +78,7 @@
                                 <Binding Path="MainImagePath">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
-                                            Resources/picture.jpg
+                                            Услуги автосервиса/picture.png
                                         </ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
