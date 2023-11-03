@@ -12,15 +12,17 @@ namespace ibakov_autoservice
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
+  
     public partial class Ibakov_autoserviceEntities : DbContext
     {
         private static Ibakov_autoserviceEntities _context;
 
         public static Ibakov_autoserviceEntities GetContext()
         {
-            if(_context==null)
-                _context=new Ibakov_autoserviceEntities();
+            if (_context == null)
+                _context = new Ibakov_autoserviceEntities();
+
             return _context;
         }
         public Ibakov_autoserviceEntities()
@@ -42,7 +44,6 @@ namespace ibakov_autoservice
         public virtual DbSet<ProductPhoto> ProductPhoto { get; set; }
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
-        public virtual DbSet<service_a_import> service_a_import { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }

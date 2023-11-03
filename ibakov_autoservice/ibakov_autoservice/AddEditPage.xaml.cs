@@ -21,13 +21,17 @@ namespace ibakov_autoservice
     public partial class AddEditPage : Page
     {
 
-        private service_a_import _currentService = new service_a_import();
+        private Service _currentService = new Service();
 
-        public AddEditPage(service_a_import SelectedService)
+        public bool check=false;
+        public AddEditPage(Service SelectedService)
         {
             InitializeComponent();
             if (SelectedService != null)
+            {
+                check=true;
                 _currentService = SelectedService;
+            }
             DataContext = _currentService;
         }
 
@@ -44,11 +48,18 @@ namespace ibakov_autoservice
             if (_currentService.Discount < 0 || _currentService.Discount > 100)
                 errors.AppendLine("Укажите скидку");
 
-            if (string.IsNullOrWhiteSpace(_currentService.DurationInSeconds))
+            if (Convert.ToInt32(_currentService.DurationInSeconds) == 0 || string.IsNullOrWhiteSpace(_currentService.DurationInSeconds.ToString()))
+            {
+
                 errors.AppendLine("Укажите длительность услуги");
+            }
+            else
+            {
+                if (Convert.ToInt32(_currentService.DurationInSeconds) > 240 || Convert.ToInt32(_currentService.DurationInSeconds) < 1)
+                    errors.AppendLine("Длительность не может быть больше 240 минут и меньше 1");
+            }
 
-
-            if(string.IsNullOrWhiteSpace(_currentService.Discount.ToString()))
+            if (string.IsNullOrWhiteSpace(_currentService.Discount.ToString()))
             {
                 _currentService.Discount = 0;
             }
@@ -58,18 +69,30 @@ namespace ibakov_autoservice
                 return;
             }
 
-            if (_currentService.ID == 0)
-                Ibakov_autoserviceEntities.GetContext().service_a_import.Add(_currentService);
-            try
+            var allServices = Ibakov_autoserviceEntities.GetContext().Service.ToList();
+            allServices = allServices.Where(p => p.Title == _currentService.Title).ToList();
+
+            if (allServices.Count == 0 || check == true)
             {
-                Ibakov_autoserviceEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
-                Manager.MainFrame.GoBack();
+                if (_currentService.ID == 0)
+                {
+                    Ibakov_autoserviceEntities.GetContext().Service.Add(_currentService);
+                }
+                try
+                {
+                    Ibakov_autoserviceEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                    Manager.MainFrame.GoBack();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+
+
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
+            else
+                MessageBox.Show("Уже существует такая услуга");
         }
     }
 }

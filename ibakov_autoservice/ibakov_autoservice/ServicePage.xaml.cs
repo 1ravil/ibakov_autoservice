@@ -27,13 +27,13 @@ namespace ibakov_autoservice
         int CountPage;
         int CurrentPage = 0;
 
-        List<service_a_import> CurrentPageList = new List<service_a_import>();
-        List<service_a_import> TableList;
+        List<Service> CurrentPageList = new List<Service>();
+        List<Service> TableList;
         public ServicePage()
         {
             InitializeComponent();
 
-            var currentServices = Ibakov_autoserviceEntities.GetContext().service_a_import.ToList();
+            var currentServices = Ibakov_autoserviceEntities.GetContext().Service.ToList();
 
             ServiceListView.ItemsSource = currentServices;
 
@@ -130,7 +130,7 @@ namespace ibakov_autoservice
 
         private void UpdateServices()
         {
-            var currentServices = Ibakov_autoserviceEntities.GetContext().service_a_import.ToList();
+            var currentServices = Ibakov_autoserviceEntities.GetContext().Service.ToList();
 
             if (ComboType.SelectedIndex == 0)
             {
@@ -203,7 +203,7 @@ namespace ibakov_autoservice
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as service_a_import));
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Service));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -211,14 +211,14 @@ namespace ibakov_autoservice
             if(Visibility==Visibility.Visible)
             {
                 Ibakov_autoserviceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                ServiceListView.ItemsSource = Ibakov_autoserviceEntities.GetContext().service_a_import.ToList();
+                ServiceListView.ItemsSource = Ibakov_autoserviceEntities.GetContext().Service.ToList();
             }
             UpdateServices();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var currentService = (sender as Button).DataContext as service_a_import;
+            var currentService = (sender as Button).DataContext as Service;
 
             var currentClientServices = Ibakov_autoserviceEntities.GetContext().ClientService.ToList();
 
@@ -232,10 +232,10 @@ namespace ibakov_autoservice
                 {
                     try
                     {
-                        Ibakov_autoserviceEntities.GetContext().service_a_import.Remove(currentService);
+                        Ibakov_autoserviceEntities.GetContext().Service.Remove(currentService);
                         Ibakov_autoserviceEntities.GetContext().SaveChanges();
 
-                        ServiceListView.ItemsSource = Ibakov_autoserviceEntities.GetContext().service_a_import.ToList();
+                        ServiceListView.ItemsSource = Ibakov_autoserviceEntities.GetContext().Service.ToList();
 
                         UpdateServices();
                     }
