@@ -43,8 +43,8 @@
         
         <Button Name="SaveButton" Content="Сохранить" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SaveBut0ton_Click"></Button>
 
-        <TextBox Name="TBTitle" Grid.Column="1" Grid.Row="0" Height="30" Text="{Binding Title}" IsEnabled="False" FontSize="20"></TextBox>
-        <TextBox Name="TBDuration" Grid.Column="1" Grid.Row="1" Height="30" HorizontalAlignment="Left" Text="{Binding DurationInSeconds}" IsEnabled="False" Width="200" Margin="243,23,157,22"></TextBox>
+        <TextBox Name="TBTitle"  Grid.Column="1" Grid.Row="0" Height="30" Text="{Binding Title}" IsEnabled="False" FontSize="20"></TextBox>
+        <TextBox Name="TBDuration"  Grid.Column="1" Grid.Row="1" Height="30" Text="{Binding DurationInSeconds}" IsEnabled="False" Width="200" FontSize="20" HorizontalAlignment="Left"></TextBox>
 
         <ComboBox Grid.Column="1" Grid.Row="2" Height="30" Width="300" FontSize="15"
                   Name="ComboClient" HorizontalAlignment="Left">
